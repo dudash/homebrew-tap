@@ -5,28 +5,23 @@ class Mdmind < Formula
 
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/dudash/mdmind/releases/download/v0.3.0/mdmind-v0.3.0-aarch64-apple-darwin.tar.gz"
-      sha256 "b17bc2b8dc208f4e5a18c4d010ecea6c6c3a739996e805026dad1a63c058cc2b"
+      url "https://github.com/dudash/mdmind/releases/download/v0.3.1/mdmind-v0.3.1-aarch64-apple-darwin.tar.gz"
+      sha256 "9699028172888f88857cfce76cf161cc9aa3c8dbd95cfc84f2431e304a44d48c"
     else
-      url "https://github.com/dudash/mdmind/releases/download/v0.3.0/mdmind-v0.3.0-x86_64-apple-darwin.tar.gz"
-      sha256 "f291918cbdcc5a03d4e6044e1de19be4912f46909d72d0f7ae05a60d519a2b23"
+      url "https://github.com/dudash/mdmind/releases/download/v0.3.1/mdmind-v0.3.1-x86_64-apple-darwin.tar.gz"
+      sha256 "008903e11f366674357c10bdd24e3e8e15dd24158676d6fce64818674c2d31be"
     end
   elsif OS.linux?
-    url "https://github.com/dudash/mdmind/releases/download/v0.3.0/mdmind-v0.3.0-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "0dce55c327956c7d7b854a0504e1fe43525562acf50a3d729ec169a8f29c83b8"
+    url "https://github.com/dudash/mdmind/releases/download/v0.3.1/mdmind-v0.3.1-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "7f8704d9bcc2f22cd7cb21e7123f97951d92ca76064bd76f9fe9fe16d1a62d90"
   end
 
   def install
-    root = Dir["mdmind-*"].find { |path| File.directory?(path) } || "."
-
-    bin.install File.join(root, "mdm")
-    bin.install File.join(root, "mdmind")
-
-    readme = File.join(root, "README.md")
-    doc.install readme if File.exist?(readme)
-
-    examples_dir = File.join(root, "examples")
-    pkgshare.install examples_dir if Dir.exist?(examples_dir)
+    bin.install Dir["*/mdm"].first => "mdm"
+    bin.install Dir["*/mdmind"].first => "mdmind"
+    doc.install Dir["*/README.md"].first
+    examples_dir = Dir["*/examples"].first
+    pkgshare.install examples_dir if examples_dir
   end
 
   test do
