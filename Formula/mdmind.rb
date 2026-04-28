@@ -5,15 +5,15 @@ class Mdmind < Formula
 
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/dudash/mdmind/releases/download/v0.3.1/mdmind-v0.3.1-aarch64-apple-darwin.tar.gz"
-      sha256 "9699028172888f88857cfce76cf161cc9aa3c8dbd95cfc84f2431e304a44d48c"
+      url "https://github.com/dudash/mdmind/releases/download/v0.4.0/mdmind-v0.4.0-aarch64-apple-darwin.tar.gz"
+      sha256 "7354168ff4ac1deced5f91be6ea993ce6800e6c9e0615205b51341446d13835d"
     else
-      url "https://github.com/dudash/mdmind/releases/download/v0.3.1/mdmind-v0.3.1-x86_64-apple-darwin.tar.gz"
-      sha256 "008903e11f366674357c10bdd24e3e8e15dd24158676d6fce64818674c2d31be"
+      url "https://github.com/dudash/mdmind/releases/download/v0.4.0/mdmind-v0.4.0-x86_64-apple-darwin.tar.gz"
+      sha256 "56c1c3d92de1ae86dbcedf90095c3825d26448b883ca5f9a50a84ba7a46ba246"
     end
   elsif OS.linux?
-    url "https://github.com/dudash/mdmind/releases/download/v0.3.1/mdmind-v0.3.1-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "7f8704d9bcc2f22cd7cb21e7123f97951d92ca76064bd76f9fe9fe16d1a62d90"
+    url "https://github.com/dudash/mdmind/releases/download/v0.4.0/mdmind-v0.4.0-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "ffdad031f847abfac32dad9c280fded0952748d7a6b313d0697faa05c39b9ed6"
   end
 
   def install
